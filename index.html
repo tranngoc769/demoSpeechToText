@@ -2,89 +2,94 @@
 <html lang="vi">
 
 <head>
-   <meta charset="utf-8" />
-   <meta name="title" content="Speech To Text" />
-   <meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
-   <meta name="MobileOptimized" content="width" />
-   <meta name="HandheldFriendly" content="true" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Speech To Text</title>
-   <link rel="stylesheet" media="all" href="./css/main.css" />
-   <style type="text/css">
-      body {
-         background: transparent;
-      }
-   </style>
+    <meta charset="utf-8" />
+    <meta name="title" content="Speech To Text" />
+    <meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech To Text</title>
+    <link rel="stylesheet" media="all" href="./css/main.css" />
+    <script src="./js/main.js"></script>
+    <script src="./js/recorderjs/recorderWorker.js"></script>
+    <script src="./js/recorderjs/recorder.js"></script>
+
+
+    <style type="text/css">
+        body {
+            background: transparent;
+        }
+    </style>
 </head>
 
 <body class="path-node">
-   <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
-      <div class="page-wrapper page-customs">
-         <!-- Header -->
-         <header class="header header--fixheight">
-            <div class="header__content">
-               <div class="header__fix"></div>
-            </div>
-         </header>
-         <!-- End/Header -->
-         <!-- Content -->
-         <div class="page-content">
-            <section class="hero-featured" style="padding-top: 0px; padding-bottom:0px;">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-12" style="text-align: center;">
-                        <h1 class="hero-featured__title">Speech To Text</h1>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-md-12">
-                        <div class="form-ai form-ai-audio">
-                           <div class="form-ai-btn">
-                              <div class="row">
-                                 <div class="col-xl-6">
-                                    <div class="form-group">
-                                       <a href="#" class="btn btn-record-mic" id="btn-record-mic">Ghi âm</a>
-                                    </div>
-                                 </div>
-                                 <div class="col-xl-6">
-                                    <div class="form-group">
-                                       <div class="inputFile-custom">
-                                          <input type="file" name="" class="inputFile-custom__file" id="stt-file">
-                                          <span class="inputFile-custom__text">Tải file ghi âm
-                                          </span>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="form-group">
-                                 <div class="recording-audio">
-                                    <canvas id="canvas-wave"></canvas>
-                                 </div>
-                              </div>
-                              <div class="form-group">
-                                 <div class="hero-featured__btn" style="margin: 0px;">
-                                    <a class="btn">Chuyển đổi</a>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <br>
-                              <label class="form-group__label">Văn bản được xác định</label>
-                              <textarea class="form-control textarea-style2" id="transcripted-text"></textarea>
-                           </div>
+    <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+        <div class="page-wrapper page-customs">
+            <!-- Header -->
+            <header class="header header--fixheight">
+                <div class="header__content">
+                    <div class="header__fix"></div>
+                </div>
+            </header>
+            <!-- End/Header -->
+            <!-- Content -->
+            <div class="page-content">
+                <section class="hero-featured" style="padding-top: 0px; padding-bottom:0px;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12" style="text-align: center;">
+                                <h1 class="hero-featured__title">Speech To Text</h1>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
-            </section>
-         </div>
-         <!-- End/Content -->
-         <!-- Footer -->
-         <footer class="footer">
-            <div class="container">
-               <div class="footer__footer">
-                  <div class="row">
-                     <!-- <div class="col-md-8 col-xl-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-ai form-ai-audio">
+                                    <div class="form-ai-btn">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group" onclick="toggleRecording(this);">
+                                                    <a href="#" class="btn btn-record-mic" id="btn-record-mic">Ghi âm</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+                                                    <div class="inputFile-custom">
+                                                        <input type="file" name="" class="inputFile-custom__file" id="stt-file">
+                                                        <span class="inputFile-custom__text">Tải file ghi âm
+                                          </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="recording-audio">
+                                                <canvas id="canvas-wave"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="hero-featured__btn" style="margin: 0px;">
+                                                <a class="btn">Chuyển đổi</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <br>
+                                        <label class="form-group__label">Văn bản được xác định</label>
+                                        <textarea class="form-control textarea-style2" id="transcripted-text"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- End/Content -->
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer__footer">
+                        <div class="row">
+                            <!-- <div class="col-md-8 col-xl-6">
                            <p class="footer__copyright">© 2020 FPT. All rights
                               reserved.
                            </p>
@@ -97,20 +102,20 @@
                                  hreflang="vi" data-drupal-link-system-path="node/22">Vietnamese</a>
                            </div>
                         </div> -->
-                  </div>
-               </div>
-            </div>
-         </footer>
-         <!-- End/Footer -->
-      </div>
-   </div>
-   <script src="https://fpt.ai/core/assets/vendor/jquery/jquery.min.js?v=3.2.1">
-   </script>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End/Footer -->
+        </div>
+    </div>
+    <script src="https://fpt.ai/core/assets/vendor/jquery/jquery.min.js?v=3.2.1">
+    </script>
 </body>
 <script>
-   jQuery(document).ready(function () {
+    jQuery(document).ready(function() {
 
-   });
+    });
 </script>
 </body>
 
