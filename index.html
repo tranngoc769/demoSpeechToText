@@ -1,120 +1,109 @@
 <!DOCTYPE html>
 <html lang="vi">
-   <head>
-      <meta charset="utf-8" />
-      <meta name="title" content="Speech To Text" />
-      <!-- <link rel="canonical" href="https://fpt.ai/vi/stt" /> -->
-       <!-- <link rel="alternate" hreflang="en" href="https://fpt.ai/stt" />
-      <link rel="alternate" hreflang="vi" href="https://fpt.ai/vi/stt" />
-      <link rel="revision" href="https://fpt.ai/vi/stt" /> -->
-      <!-- <link href='//fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600&amp;amp;display=swap&amp;amp;subset=vietnamese' rel='stylesheet' type='text/css' /> -->
-            <!-- <link rel="stylesheet" href="https://use.typekit.net/mcq6uph.css"> -->
-      <meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
-      <meta name="MobileOptimized" content="width" />
-      <meta name="HandheldFriendly" content="true" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>Speech To Text</title>
-      <link rel="stylesheet" media="all"  href="./css/main.css" />
-      <!-- <link rel="stylesheet" media="all" href="./css/custom.css" /> -->
-      <style type="text/css">
-         body { background: transparent; }
-      </style>
-   </head>
-   <body class="path-node">
-      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
-         <div class="page-wrapper page-customs">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="title" content="Speech To Text" />
+    <meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech To Text</title>
+    <link rel="stylesheet" media="all" href="./css/main.css" />
+    <!-- <link rel="stylesheet" media="all" href="./css/custom.css" /> -->
+    <style type="text/css">
+        body {
+            background: transparent;
+        }
+    </style>
+</head>
+
+<body class="path-node">
+    <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+        <div class="page-wrapper page-customs">
             <!-- Header -->
             <header class="header header--fixheight">
-               <div class="header__content">
-                  <div class="header__fix"></div>
-               </div>
+                <div class="header_content">
+                    <div class="header_fix"></div>
+                </div>
             </header>
-            <!-- End/Header -->
             <!-- Content -->
             <div class="page-content">
-               <section class="hero-featured" style="padding-top: 0px; padding-bottom:0px;">
-                  <div class="container">
-                     <div class="row">
-                        <div class="col-md-12" style="text-align: center;">
-                           <h1 class="hero-featured__title">Speech To Text</h1>
+                <section class="sr" style="padding-top: 0px;
+                  padding-bottom:0px;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12" style="text-align: center;">
+                                <h1 class="sr_title">Speech To Text</h1>
+                            </div>
                         </div>
-                     </div>
-                     <div class="row">
-                        <div class="col-md-12">
-                           <div class="form-ai form-ai-audio">
-                              <div class="form-ai-btn">
-                                 <div class="row">
-                                    <div class="col-xl-6">
-                                       <div class="form-group">
-                                          <a href="#" class="btn btn-record-mic" id="btn-record-mic">Ghi âm</a>
-                                       </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-ai form-ai-audio">
+                                    <div class="form-ai-btn">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+                                                    <a href="#" class="btn btn-record-mic" id="btn-record-mic">Ghi âm</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+                                                    <div class="inputFile-custom">
+                                                        <div>
+                                                            <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+                                                                <input type="file" name="" class="inputFile-custom_file" id="stt-file">
+                                                                <span class="inputFile-custom_text">Tải
+                                                      file ghi âm
+                                                      <!-- <img src="https://fpt.ai/themes/md_fpt/img/icon/up-arrow.svg"> -->
+                                                   </span>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="recording-audio">
+                                                <canvas id="canvas-wave"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div id="trans" class="sr_btn" style="margin: 0px;">
+                                                <button class="btn">Chuyển đổi</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-xl-6">
-                                       <div class="form-group">
-                                          <div class="inputFile-custom">
-                                             <input type="file" name="" class="inputFile-custom__file"
-                                                id="stt-file">
-                                             <span class="inputFile-custom__text">Tải file ghi âm
-                                             <!-- <img src="https://fpt.ai/themes/md_fpt/img/icon/up-arrow.svg"> -->
-                                             </span>
-                                          </div>
-                                       </div>
+                                    <div class="form-group">
+                                        <br>
+                                        <label class="form-group_label">Văn bản được xác định</label>
+                                        <textarea class="form-control textarea-style" id="transcripted-text"></textarea>
                                     </div>
-                                 </div>
-                                 <div class="form-group">
-                                    <div class="recording-audio">
-                                       <canvas id="canvas-wave"></canvas>
-                                    </div>
-                                 </div>
-                                 <div class="form-group">
-                                    <div class="hero-featured__btn" style="margin: 0px;">
-                                       <a class="btn">Chuyển đổi</a>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="form-group">
-                                 <br>
-                                 <label class="form-group__label">Văn bản được xác định</label>
-                                 <textarea class="form-control textarea-style2"
-                                    id="transcripted-text"></textarea>
-                              </div>
-                              <!-- <p id="stt-flash-error" style="color:red;"></p> -->
-                           </div>
+                                    <!-- <p id="stt-flash-error" style="color:red;"></p> -->
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </section>
+                    </div>
+                </section>
             </div>
             <!-- End/Content -->
             <!-- Footer -->
             <footer class="footer">
-               <div class="container">
-                  <div class="footer__footer">
-                     <div class="row">
-                        <!-- <div class="col-md-8 col-xl-6">
-                           <p class="footer__copyright">© 2020 FPT. All rights
-                              reserved.
-                           </p>
+                <div class="container">
+                    <div class="footer_footer">
+                        <div class="row">
+
                         </div>
-                        <div class="col-md-4 col-xl-6">
-                           <div class="footer__language">
-                              <a href="/stt" class="language-link" hreflang="en"
-                                 data-drupal-link-system-path="node/22">English</a>
-                              <a href="/vi/stt" class="language-link is-active"
-                                 hreflang="vi" data-drupal-link-system-path="node/22">Vietnamese</a>
-                           </div>
-                        </div> -->
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </footer>
             <!-- End/Footer -->
-         </div>
-      </div>
-      <script
-		 src="https://fpt.ai/core/assets/vendor/jquery/jquery.min.js?v=3.2.1">
-		</script>
-      <script src="./js/main.js">
-		</script>
-   </body>
+        </div>
+    </div>
+    <script src="./js/jquery.min.js">
+    </script>
+    <script src="./js/main.js">
+    </script>
+</body>
+
 </html>
