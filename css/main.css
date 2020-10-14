@@ -1063,15 +1063,14 @@ textarea {
     -webkit-box-shadow: none;
     box-shadow: none;
     height: 300px;
-    line-height: 50px;
-    font-size: 16px;
-    color: #ff3d00;
+    line-height: 30px;
+    font-size: 20px;
+    /* color: #ff3d00; */
     width: 100%;
     background-color: #E7E8F1;
     border: 1px solid #E7E8F1;
     border-radius: 0;
-    padding: 0 20px;
-    margin-bottom: 15px;
+    padding: 10px 20px;
 }
 
 input[type="file"]::-webkit-input-placeholder,
@@ -1374,4 +1373,171 @@ label {
 
 button .btn {
     width: 100% !important;
+}
+
+button:disabled,
+button[disabled] {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+#loading {
+    position: relative;
+    width: 160px;
+    height: 20px;
+    margin: 15px auto;
+}
+
+.loading {
+    position: absolute;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    width: 20px;
+    height: 20px;
+    animation-name: loading;
+    -o-animation-name: loading;
+    -ms-animation-name: loading;
+    -webkit-animation-name: loading;
+    -moz-animation-name: loading;
+    animation-duration: 1.69s;
+    -o-animation-duration: 1.69s;
+    -ms-animation-duration: 1.69s;
+    -webkit-animation-duration: 1.69s;
+    -moz-animation-duration: 1.69s;
+    animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-direction: normal;
+    -o-animation-direction: normal;
+    -ms-animation-direction: normal;
+    -webkit-animation-direction: normal;
+    -moz-animation-direction: normal;
+    border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+#loading_1 {
+    left: 0;
+    animation-delay: 0.68s;
+    -o-animation-delay: 0.68s;
+    -ms-animation-delay: 0.68s;
+    -webkit-animation-delay: 0.68s;
+    -moz-animation-delay: 0.68s;
+}
+
+#loading_2 {
+    left: 25px;
+    animation-delay: 0.85s;
+    -o-animation-delay: 0.85s;
+    -ms-animation-delay: 0.85s;
+    -webkit-animation-delay: 0.85s;
+    -moz-animation-delay: 0.85s;
+}
+
+#loading_3 {
+    left: 50px;
+    animation-delay: 1.01s;
+    -o-animation-delay: 1.01s;
+    -ms-animation-delay: 1.01s;
+    -webkit-animation-delay: 1.01s;
+    -moz-animation-delay: 1.01s;
+}
+
+#loading_4 {
+    left: 75px;
+    animation-delay: 1.18s;
+    -o-animation-delay: 1.18s;
+    -ms-animation-delay: 1.18s;
+    -webkit-animation-delay: 1.18s;
+    -moz-animation-delay: 1.18s;
+}
+
+#loading_5 {
+    left: 100px;
+    animation-delay: 1.35s;
+    -o-animation-delay: 1.35s;
+    -ms-animation-delay: 1.35s;
+    -webkit-animation-delay: 1.35s;
+    -moz-animation-delay: 1.35s;
+}
+
+#loading_6 {
+    left: 125px;
+    animation-delay: 1.52s;
+    -o-animation-delay: 1.52s;
+    -ms-animation-delay: 1.52s;
+    -webkit-animation-delay: 1.52s;
+    -moz-animation-delay: 1.52s;
+}
+
+#loading_7 {
+    left: 150px;
+    animation-delay: 1.69s;
+    -o-animation-delay: 1.69s;
+    -ms-animation-delay: 1.69s;
+    -webkit-animation-delay: 1.69s;
+    -moz-animation-delay: 1.69s;
+}
+
+#loading_8 {
+    left: 175px;
+    animation-delay: 1.86s;
+    -o-animation-delay: 1.86s;
+    -ms-animation-delay: 1.86s;
+    -webkit-animation-delay: 1.86s;
+    -moz-animation-delay: 1.86s;
+}
+
+@keyframes loading {
+    0% {
+        background-color: rgb(0, 0, 0);
+    }
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+@-o-keyframes loading {
+    0% {
+        background-color: rgb(0, 0, 0);
+    }
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+@-ms-keyframes loading {
+    0% {
+        background-color: rgb(0, 0, 0);
+    }
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+@-webkit-keyframes loading {
+    0% {
+        background-color: rgb(0, 0, 0);
+    }
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+@-moz-keyframes loading {
+    0% {
+        background-color: rgb(0, 0, 0);
+    }
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+.hiden {
+    display: none;
 }
