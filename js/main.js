@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    $("#btn-record-mic").click(function () {
+$(document).ready(function() {
+    $("#btn-record-mic").click(function() {
         jQuery.ajax({
             url: 'https://api-speech-recognition.herokuapp.com/recognize',
             data: data,
@@ -8,17 +8,16 @@ $(document).ready(function () {
             processData: false,
             method: 'POST',
             type: 'POST', // For jQuery < 1.9
-            success: function (data) {
+            success: function(data) {
                 alert(data);
             }
         });
     });
     //  
-    function titleCaseString(input)
-    {
+    function titleCaseString(input) {
         return input.charAt(0).toUpperCase() + input.slice(1);
     }
-    $("#trans").click(function () {
+    $("#trans").click(function() {
         var form = $('form')[0];
         var formData = new FormData(form);
         formData.append('sound', $('input[type=file]')[0].files[0]);
@@ -30,21 +29,16 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
             cache: false,
-            success: function (data) {
-                if(data.code == 1)
-                {
-                    alert (data.text);
-                }
-                else if (data.code == -2)
-                {
+            success: function(data) {
+                if (data.code == 1) {
+                    alert(data.text);
+                } else if (data.code == -2) {
                     alert('Không thể xử lý dữ liệu âm thanh');
-                }
-                else
-                {
+                } else {
                     alert('Trống');
                 }
             },
-            error: function (e) {
+            error: function(e) {
                 alert("Erro : " + e)
             }
         });
